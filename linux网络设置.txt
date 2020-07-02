@@ -1,0 +1,9 @@
+设置IP地址：
+sudo ifconfig ens33 192.168.50.97 netmask 255.255.255.0
+设置默认网关：
+sudo route add default gw 192.168.50.1
+设置DNS：
+sudo vi /etc/resolv.conf
+添加
+nameserver 192.168.50.1
+options ens33

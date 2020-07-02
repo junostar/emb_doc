@@ -1,0 +1,6 @@
+wpa_passphrase juno-light qq1140316187 >> /etc/wpa_supplicant.conf
+wpa_supplicant -B -iwlan0 -c /etc/wpa_supplicant.conf
+-B(deamon process) -i(ifname) -c(control)
+udhcpc -i wlan0
+
+iw wlan0 link

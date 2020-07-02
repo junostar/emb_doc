@@ -1,0 +1,32 @@
+﻿一、安装相关依赖
+sudo apt-get install 
+/* c++扩展库boost */
+libboost-all-dev 
+/* 线性代数库blas */
+libblas-dev
+/* 线性代数函数库apack */
+liblapack-dev
+二、安装线性代数矩阵库eigen
+要先确定你的Eigen安装在/usr/local/include还是/usr/include
+cd /usr/local/include
+sudo ln -sf eigen3/Eigen Eigen
+sudo ln -sf eigen3/unsupported unsupported
+三、安装openCV库
+在etc/apt/sourcrs.list 文件后面添加deb http://archive.ubuntu.com/ubuntu/ trusty main universe restricted multiverse ，然后sudo apt-get update即可!!!亲测可以的！搞了我好久
+sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
+sudo apt update
+sudo apt install libjasper1 libjasper-dev
+成功的解决了问题，其中libjasper1是libjasper-dev的依赖包
+
+/* add lib path */
+sudo vi /etc/ld.so.conf
+sudo ldconfig
+
+sudo /bin/bash -c 'echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf' 
+sudo ldconfig
+/* test */
+sudo vim /etc/profile
+++export  PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig 
+pkg-config --modversion opencv
+四、安装Pangolin
+五、安装orb_slam2

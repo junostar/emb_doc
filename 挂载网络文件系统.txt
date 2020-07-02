@@ -1,0 +1,10 @@
+–ﬁ∏ƒ£∫
+sudo vi /etc/exports
+/home/book/nfs_root     *(rw,sync,no_root_squash)
+÷ÿ∆Ù£∫
+sudo /etc/init.d/nfs-kernel-sever restart
+π“‘ÿ£∫
+u-boot£∫
+mount -t nfs -o nolock,vers=3,port=2049,mountport=9999 192.168.1.17:/home/book/nfs_rootfs /mnt
+linux£∫
+mount -t nfs -o nolock 192.168.50.97:/home/book/nfs_root /mnt
