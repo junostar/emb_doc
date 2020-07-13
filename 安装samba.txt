@@ -2,13 +2,33 @@ sudo apt-get install samba samba-common
 sudo mkdir /home/pi/share_dir
 sudo chmod 777 /home/share -R
 sudo cp /etc/samba/smb.conf smb.conf_bak
-/max log
+
+
+/printers
+
+[share]
+	comment = sailfishsharing
+	path = /media/sailfish
+	writable = yes
+	browable = yes
+
+smbpasswd -a pi
+
+pdbedit -L 
+service smbd restart
+
+
+windows:
+	\\192.168.1.21
+
+=================================================================
+/max
 security = user
 1000gg
 [Ubuntu18.04]
  comment = My Share Directories
  browseable = yes
- path = /home/pi/share_dir
+ path = /home/pi/share
 
 # By default, the home directories are exported read-only. Change the
 # next parameter to 'no' if you want to be able to write to them.
@@ -29,13 +49,3 @@ security = user
 # can connect to \\server\username
 # This might need tweaking when using external authentication schemes
 ;   valid users = %S
-
-
-smbpasswd -a smbuser
-
-pdbedit -L
-service smbd restart
-
-
-windows:
-	\\192.168.50.200

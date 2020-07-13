@@ -1,0 +1,13 @@
+cmake_minimum_required (VERSION 2.8)
+
+project(video_test)
+
+find_package( OpenCV REQUIRED )
+
+#include_directories("include")
+
+add_library(libHello src/Hello.c)
+
+add_executable(video_test video.cpp)
+
+target_link_libraries( video_test ${OpenCV_LIBS} )
